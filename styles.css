@@ -127,6 +127,7 @@ ul li {
     
     .contact-item {
         margin-bottom: 10px;
+        justify-content: center; /* To center icon and text within the item */
     }
     
     .header h1 {
@@ -136,6 +137,4 @@ ul li {
     .tagline {
         font-size: 14px;
     }
-}
-    margin: 5px 0;
 }
