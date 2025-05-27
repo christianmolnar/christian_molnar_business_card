@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 .header h1 {
@@ -42,8 +42,8 @@ body {
 }
 
 .content {
-    display: flex;
     margin-bottom: 30px;
+    display: block; /* Override previous flex to allow float in intro-wrap */
 }
 
 .achievements {
@@ -110,6 +110,57 @@ ul li {
     margin-right: 5px;
 }
 
+.intro-wrap {
+    overflow: auto;
+    margin-bottom: 30px;
+    display: block;
+    margin-top: 0;
+}
+
+.intro-wrap::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.intro-text {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.headshot-right {
+    float: right;
+    width: 207px;
+    max-width: 30%;
+    margin-left: 32px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    display: inline;
+}
+
+.achievements-2col {
+    margin-top: 10px;
+}
+
+.achievements-cols {
+    display: flex;
+    gap: 32px;
+}
+
+.achievements-cols ul {
+    flex: 1;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.achievements-cols li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
 @media screen and (max-width: 768px) {
     .content {
         flex-direction: column;
@@ -136,5 +187,24 @@ ul li {
     
     .tagline {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .achievements-cols {
+        flex-direction: column;
+        gap: 0;
+    }
+    .achievements-cols ul {
+        margin-bottom: 24px;
+    }
+    .headshot-right {
+        float: none;
+        display: block;
+        margin: 0 auto 16px auto;
+        max-width: 60%;
+    }
+    .intro-wrap {
+        text-align: center;
     }
 }
