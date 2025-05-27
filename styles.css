@@ -144,13 +144,14 @@ ul li {
 
 .achievements-cols {
     display: flex;
-    gap: 32px;
+    gap: 0px; /* remove gap entirely for minimal space around divider */
+    position: relative;
 }
 
 .achievements-cols ul {
     flex: 1;
     list-style-type: disc;
-    padding-left: 20px;
+    padding-left: 4px; /* further reduce left padding */
     margin: 0;
 }
 
@@ -159,6 +160,42 @@ ul li {
     color: #333;
     margin-bottom: 14px;
     line-height: 1.5;
+}
+
+.achievements-cols.with-divider {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    position: relative;
+}
+
+.achievements-cols.with-divider ul {
+    flex: 1;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.divider {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.achievements-divider {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: #e0e0e0;
+    z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -198,6 +235,9 @@ ul li {
     .achievements-cols ul {
         margin-bottom: 24px;
     }
+    .achievements-divider {
+        display: none;
+    }
     .headshot-right {
         float: none;
         display: block;
@@ -206,5 +246,11 @@ ul li {
     }
     .intro-wrap {
         text-align: center;
+    }
+    .achievements-cols.with-divider {
+        flex-direction: column;
+    }
+    .divider {
+        display: none;
     }
 }
